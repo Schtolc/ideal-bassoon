@@ -21,6 +21,7 @@ async def on_message(message):
 
         emojis = list(
             map(lambda letter: ':regional_indicator_' + letter + ':' if letter.isalpha() else letter, message_text))
+        emojis = list(map(lambda letter: letter.lower(), emojis))
         emoji_string = reduce(operator.add, emojis)
         await client.send_message(message.channel, emoji_string)
 
